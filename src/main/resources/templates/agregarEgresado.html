@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <head th:replace="layouts/plantilla :: head">
+
+        </head>
+        <body>
+            <header th:replace="layouts/plantilla :: header"></header>
+            <h2 class="mt-3 ml-3">Agregar egresado</h2>
+            <div>
+
+                <form class="container border border-primary p-5" th:action="@{/egresados/agregarEgresado}" method="POST" th:object="${estudiante}" >
+                    <h3>Datos personales</h3>
+                    <input type="hidden" name="idEstudiante" th:field="*{id}">
+                        <div class="mb-3" >
+                            <label for="usuario.nroControl" class="form-label">Numero de control</label>
+                            <input type="text" class="form-control" name="usuario.nroControl" th:field="*{usuario.nroControl}" >
+                                <span th:if="${#fields.hasErrors('usuario.nroControl')}" th:errors="*{usuario.nroControl}">Error nombre</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" th:field="*{usuario.password}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" th:field="*{datosPersonales.nombre}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidoPaterno" class="form-label">Apellido paterno</label>
+                            <input type="text" class="form-control" name="apellidoPaterno" th:field="*{datosPersonales.aprllidoPaterno}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidoMaterno" class="form-label">Apellido materno</label>
+                            <input type="text" class="form-control" name="apellidoMaterno" th:field="*{datosPersonales.apellidoMaterno}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" name="email" th:field="*{datosPersonales.correo}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="celular" class="form-label">Celular</label>
+                            <input type="number" class="form-control" name="celular" th:field="*{datosPersonales.celular}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <input type="text" class="form-control" name="estado" th:field="*{datosPersonales.direccion.estado}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <input type="text" class="form-control" name="direccion" th:field="*{datosPersonales.direccion.estado}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" name="ciudad" th:field="*{datosPersonales.direccion.ciudad}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="calle" class="form-label">Calle</label>
+                            <input type="text" class="form-control" name="calle" th:field="*{datosPersonales.direccion.calle}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="coidgoPostal" class="form-label">Código postal</label>
+                            <input type="text" class="form-control" name="codigoPostal" th:field="*{datosPersonales.direccion.codigoPostal}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="colonia" class="form-label">Colonia</label>
+                            <input type="text" class="form-control" name="colonia" th:field="*{datosPersonales.direccion.colonia}">
+                        </div>
+
+                        <h3>Datos escolares</h3>
+                        <div class="mb-3">
+                            <label for="anioIngreso" class="form-label">Año ingreso</label>
+                            <input type="number" class="form-control" name="anioIngreso" th:field="*{datosEscolares.anioIngreso}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="anioEgreso" class="form-label">Año egreso</label>
+                            <input type="number" class="form-control" name="anioEgreso" th:field="*{datosEscolares.anioEgreso}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="promedioFinal" class="form-label">Promedio final</label>
+                            <input type="number" class="form-control" name="promedioFinal" th:field="*{datosEscolares.promedioFinal}">
+                        </div>
+                        <div>
+                            <label for="carrera" class="form-label">Carrera</label>
+                        <select class="form-select form-select-lg mb-3" th:field="*{datosEscolares.carrera.nombreCarrera}">
+                            
+                            <option th:value="'Ingeniería informática'">Ingeniería informática</option>
+                            
+                        </select>
+                            </div>
+                        <div>
+                            <label for="carrera" class="form-label">Especialidad</label>
+                        <select class="form-select form-select-lg mb-3" th:field="*{datosEscolares.carrera.especialidad}">
+                            <option th:value="'móviles'">Móviles</option>
+                            <option th:value="'redes'">Redes</option>
+                            
+                        </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+
+            </div>
+
+
+
+        </body>
+</html>

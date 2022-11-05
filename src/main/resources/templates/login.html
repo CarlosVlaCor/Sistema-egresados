@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layouts/plantilla :: head">
+        
+    </head>
+    <body>
+        <header th:replace="layouts/plantilla :: header"></header>
+        <section id="actions" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- Se pueden agregar algunos botones -->
+                </div>
+            </div>
+        </section>
+
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" th:action="@{/login}">
+                                     <div class="mb-3" >
+                                        <label class="form-label" for="nroControl" >Número de control</label>
+                                        <input type="text" class="form-control" name="nroControl" id="nroControl"/>
+                                    </div>
+                                    <div class="mb-3" >
+                                        <label for="password" class="form-label"  >Contraseña:</label>
+                                        <input type="password" class="form-control" name="password" id="password"/>
+                                    </div>
+                                    <input type="submit"  value="Login" class="btn btn-primary btn-block"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

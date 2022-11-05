@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layouts/plantilla :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"></meta>
+    </head>
+    <body>
+        <header th:replace="layouts/plantilla :: header"></header>
+        <div class="container mt-4">
+            
+            <a class="btn btn-primary" href="egresados/agregarEgresado" role="button">
+            <i class="fa-solid fa-plus"></i>
+                Agregar un nuevo egresado
+            </a>
+        </div>
+        
+         <div class="container my-5">
+            <div class="row align-items-center">
+               <div class="column col text-center bg-light mx-3 border border-primary rounded">
+                   
+                    <div class="card text-center text-primary my-4 border-light">
+                        <div class="card-body p-5 bg-light" >
+                            <h2 class="display-4">
+                                <i class="fa-solid fa-user"></i>
+                            </h2>
+                            <h4 class="mt-5"><a th:href="@{/egresados/datosPersonales}">Datos personales</a> </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col text-center bg-light mx-3 border border-primary rounded">
+                   
+                    <div class="card text-center text-primary my-4 border-light">
+                        <div class="card-body p-5 bg-light">
+                            <h2 class="display-4">
+                                <i class="fa-solid fa-book"></i>
+                            </h2>
+                            <h4 class="mt-5"><a th:href="@{/egresados/datosEscolares}">Datos escolares</a> </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col text-center bg-light mx-3 border border-primary rounded" >
+                   
+                    <div class="card text-center  text-primary my-4 border-light">
+                        <div class="card-body p-5 bg-light">
+                            <h2 class="display-4">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </h2>
+                            <h4 class="mt-5"><a th:href="@{/egresados/datosLaborales}">Datos laborales</a> </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="row justify-content-md-center mt-5">
+                 <div class="column col-4 text-center bg-light mx-3 border border-primary rounded" >
+                   
+                    <div class="card text-center  text-primary my-4 border-light">
+                        <div class="card-body p-5 bg-light">
+                            <h2 class="display-4">
+                                <i class="fa-solid fa-chart-column"></i>
+                            </h2>
+                            <h4 class="mt-5"><a th:href="@{/egresados/estadisticas}">Estadíticas</a> </h4>
+                        </div>
+                    </div>
+                </div>
+                 <div class="column col-4 text-center bg-light mx-3 border border-primary rounded" >
+                   
+                    <div class="card text-center  text-primary my-4 border-light">
+                        <div class="card-body p-5 bg-light">
+                            <h2 class="display-4">
+                                <i class="fa-solid fa-comment"></i>
+                            </h2>
+                            <h4 class="mt-5"><a th:href="@{/egresados/comentarios}">Comentarios</a> </h4>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>
