@@ -14,19 +14,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class CustomUserDetailsService implements UserDetailsService{
+public class CustomUserDetailsService implements UserDetailsService {
+
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
+
     @Override
-    @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String nroControl) throws UsernameNotFoundException {
-        Usuario usuario =  usuarioRepositorio.findByNroControl(nroControl);
-        if(usuario == null){
+    public UserDetails loadUserByUsername(String nroControlOrCurp) throws UsernameNotFoundException {
+        System.out.println(nroControlOrCurp.length());
+        Usuario usuario = usuarioRepositorio.findByNroControlOrCurp(nroControlOrCurp, nroControlOrCurp);
+        
+        if (usuario == null) {
             throw new UsernameNotFoundException("No se encontró el usuario");
         }
-        
+        System.out.println(usuario.getNroControl());
+        System.out.println(usuario.getCurp());
+
         GrantedAuthority ga = new SimpleGrantedAuthority(usuario.getRol().getNombre());
-        return new User(usuario.getNroControl(), usuario.getPassword(), Collections.singleton(ga));
+        if (!usuario.getNroControl().equals("")) {
+            return new User(usuario.getNroControl(), usuario.getPassword(), Collections.singleton(ga));
+        } else {
+            return new User(usuario.getCurp(), usuario.getPassword(), Collections.singleton(ga));
+        }
+
     }
-    
+
 }

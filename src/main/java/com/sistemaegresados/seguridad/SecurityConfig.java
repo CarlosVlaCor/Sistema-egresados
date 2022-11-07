@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsService userDetailsService;
@@ -22,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
@@ -32,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .authorizeRequests().antMatchers("/","/egresados/**")
                 .authenticated().and()
                                 .formLogin().loginPage("/login")
-                .usernameParameter("nroControl").permitAll();
+                .usernameParameter("nroControlOrCurp").permitAll();
 
     }
     

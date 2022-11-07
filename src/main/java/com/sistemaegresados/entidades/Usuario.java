@@ -29,6 +29,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nroControl;
+    private String curp;
     private String password;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_rol")
