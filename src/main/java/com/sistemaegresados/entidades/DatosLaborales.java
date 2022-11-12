@@ -1,5 +1,6 @@
 package com.sistemaegresados.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class DatosLaborales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombreEmpresa;
-    private int anioInicio;
+    private Integer anioInicio;
     private String puesto;
     
     public DatosLaborales(){

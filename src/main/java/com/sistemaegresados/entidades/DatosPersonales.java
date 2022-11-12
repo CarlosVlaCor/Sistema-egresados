@@ -21,7 +21,7 @@ public class DatosPersonales {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String aprllidoPaterno;
+    private String apellidoPaterno;
     private String apellidoMaterno;
     private String correo;
     private String celular;

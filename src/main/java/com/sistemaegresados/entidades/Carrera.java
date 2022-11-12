@@ -21,5 +21,8 @@ public class Carrera {
     private String especialidad;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "carrera")
     private List<DatosEscolares> datosEscolareses;
+    public Carrera(){
+        
+    }
     
 }

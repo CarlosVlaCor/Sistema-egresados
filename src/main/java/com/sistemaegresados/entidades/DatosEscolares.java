@@ -28,5 +28,7 @@ public class DatosEscolares {
     private Carrera carrera;
     @OneToOne(mappedBy = "datosEscolares", fetch = FetchType.LAZY)
     private Estudiante estudiante;
-    
+    public DatosEscolares(){
+        
+    }
 }

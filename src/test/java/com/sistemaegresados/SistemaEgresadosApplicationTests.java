@@ -21,8 +21,7 @@ class SistemaEgresadosApplicationTests {
     UsuarioRepositorio usuarioRepositorio;
 	@Test
 	void contextLoads() {
-           Usuario usuario = usuarioRepositorio.findByNroControlOrCurp("", "VACC010527HSLLRRA5");
-            System.out.println(usuario.getRol().getNombre());
+            System.out.println(egresadoServicio.buscarEstudiante("19440380"));
 	}
 
 }

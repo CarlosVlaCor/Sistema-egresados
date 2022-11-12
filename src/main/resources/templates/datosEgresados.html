@@ -1,0 +1,219 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layouts/plantilla :: head">
+
+    </head>
+    <body>
+        <header th:replace="layouts/plantilla :: header"></header>
+        <div class="container text-center">
+            <h3>Buscar egresado</h3>
+            <br/>
+
+            <form class="row justify-content-center " method="GET" th:action="@{/egresados/datosEgresados}">
+                <div class="col-auto">
+                    <label for="inputPassword2" >Introduce el número de control del egresado</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" th:name="nroControl" id="nroControl" placeholder="Número de control">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+                </div>
+            </form>
+        </div>
+        
+        <div th:if="${Egresado != null}">
+            <form class="mb-5" method="POST"th:object="${Egresado}" th:action="@{'/egresados/modificarEgresado/' + ${Egresado.usuario.nroControl}}">
+                <div id="accordion">
+
+                    <div class="card">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#datosPersonales">
+                            <div class="card-header">
+                                Datos personales
+                            </div>
+
+                        </a>
+                    </div>
+                    <div id="datosPersonales" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Nombre(s)</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.nombre}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Apellido paterno</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.apellidoPaterno}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Apellido Materno</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.apellidoMaterno}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">CURP</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{usuario.curp}">
+                                </div>
+                            </div> 
+                            <div class="row mt-3">
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Estado</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.direccion.estado}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.direccion.ciudad}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Colonia</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.direccion.colonia}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.direccion.calle}">
+                                </div>
+                            </div>
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Código postal</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.direccion.codigoPostal}">
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Teléfono</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.celular}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Correo electrónico</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosPersonales.correo}">
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
+
+
+                    <div class="card">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#datosEscolares">
+                            <div class="card-header">
+                                Datos escolares
+                            </div>
+
+                        </a>
+                        <div id="datosEscolares" class="collapse " data-parent="#accordion">
+                            <div class="card-body" >
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-3">
+                                        <label for="inputEmail4" class="form-label">Número de control</label>
+                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{usuario.nroControl}">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="inputEmail4" class="form-label">Nombre de la carrera</label>
+                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{datosEscolares.carrera.nombreCarrera}">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="inputEmail4" class="form-label">Especialidad</label>
+                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{datosEscolares.carrera.especialidad}">
+                                    </div>
+
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <div class="col-sm-2">
+                                        <label for="inputEmail4" class="form-label ">Año de Ingreso</label>
+                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioIngreso}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="inputEmail4" class="form-label ">Año de egreso</label>
+                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioEgreso}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="inputEmail4" class="form-label ">Promedio final</label>
+                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.promedioFinal}">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+
+                            <a class="collapsed card-link" data-toggle="collapse" href="#datosLaborales">
+                                <div class="card-header">
+                                    Datos laborales
+                                </div>
+
+                            </a>
+
+                            <div id="datosLaborales" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-3">
+                                            <label for="inputEmail4" class="form-label">Nombre de la empresa</label>
+                                            <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.nombreEmpresa}">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="inputEmail4" class="form-label">Puesto</label>
+                                            <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.puesto}">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="inputEmail4" class="form-label">Año de inicio</label>
+                                            <input type="number" th:value="0" th:field='*{datosLaborales.anioInicio}' class="form-control" id="inputEmail4" min='0'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> 
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-danger mt-3 mx-3" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                        <button type="button" class="btn btn-primary mt-3 mx-3" data-toggle="modal" data-target="#exampleModalCenter">Guardar cambios</button>
+                    </div>
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere guardar los cambios?</h5>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="input" class="btn btn-primary ">Guardar cambios</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                     <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="eliminar" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere eliminar el egresado?</h5>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn btn-danger" th:href="@{'/egresados/eliminarEgresado/' + ${Egresado.usuario.nroControl}}" role="button">Link</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </body>
+</html>
