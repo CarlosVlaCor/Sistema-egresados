@@ -72,10 +72,7 @@ public class ControladorEgresado {
     public String mostrarEstadisticas(){
         return "estadisticas";
     }
-    @GetMapping("/comentarios")
-    public String mostrarFeedback(){
-        return "feedback";
-    }
+    
     
     
     

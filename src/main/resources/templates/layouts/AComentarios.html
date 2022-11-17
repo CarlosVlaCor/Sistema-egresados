@@ -9,7 +9,7 @@
                 <h2 class="display-4">
                     <i class="fa-solid fa-comment"></i>
                 </h2>
-                <a th:href="@{/egresados/estadisticas}">
+                <a th:href="@{/egresados/comentarios}">
                     <h4 class="mt-5" sec:authorize="hasRole('ROLE_ADMIN')">Comentarios</h4>
                     <h4 class="mt-5" sec:authorize="hasRole('ROLE_EGRESADO')">Dejar comentario</h4>
                 </a> 

@@ -32,6 +32,9 @@ public class Estudiante {
     @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_datos_laborales", referencedColumnName = "id")
     private DatosLaborales datosLaborales;
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_comentario", referencedColumnName = "id")
+    private Comentario comentario;
     
     public Estudiante(){
         

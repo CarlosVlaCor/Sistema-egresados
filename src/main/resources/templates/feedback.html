@@ -1,10 +1,91 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head th:replace="layouts/plantilla :: head">
-        
+
     </head>
     <body>
         <header th:replace="layouts/plantilla :: header"></header>
         <h2>Comentarios</h2>
+        <div class="container">
+            <table class="table table-hover table-bordered table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Comentarios</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="comentario : ${datosPaginacion.contenido}">
+                        <td scope="row">
+                            <div class="container">
+                                <div class="row justify-content-between">
+                                    <div class="column">
+                                        <div>
+                                            <span th:text="${comentario.estudiante.datosPersonales.nombre} + ' ' + ${comentario.estudiante.datosPersonales.apellidoPaterno} +
+                                                  ' ' + ${comentario.estudiante.datosPersonales.apellidoMaterno}">
+                                            </span>
+                                            <span th:text="'#'+${comentario.estudiante.usuario.nroControl}">
+                                            </span>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="column">
+                                        <span th:text="${comentario.fecha}"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column py-2 px-4">
+                                        <p th:text="${comentario.cuerpo}"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+            <div></div>
+            <nav aria-label="..." >
+                <ul class="pagination justify-content-center" th:if="${datosPaginacion.totalPaginas > 1}">
+                   
+                    <th:block th:text="${datosPaginacion.moverSeccionActual()}"></th:block>
+                    <div th:if="${datosPaginacion.totalPaginas >= 5}" class="row">
+                         <li class="page-item" th:classappend="${datosPaginacion.primerPagina ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{'/egresados/comentarios?nroPagina=' + ${datosPaginacion.nroPagina-1}}" tabindex="-1">Previous</a>
+                    </li>
+                    <th:block th:each="i: ${#numbers.sequence(0, datosPaginacion.totalElementos * datosPaginacion.totalPaginas)}">
+                        <li class="page-item" th:classappend="${i == datosPaginacion.nroPagina ? 'active' : ''}" th:if="${i >= datosPaginacion.inicioActual && i <= datosPaginacion.limiteActual}">
+                            <a class="page-link"
+                               th:text="${i+1}" th:href="@{'/egresados/comentarios?nroPagina=' + ${i}}"></a>
+                        </li>
+                    </th:block>
+                        <li class="page-item" th:classappend="${datosPaginacion.ultima ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{'/egresados/comentarios?nroPagina=' + ${datosPaginacion.nroPagina+1}}">Next</a>
+                    </li>
+                    </div>
+                    <div th:if="${datosPaginacion.totalPaginas < 5}" class="row" >
+                         <li class="page-item" th:classappend="${datosPaginacion.primerPagina ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{'/egresados/comentarios?nroPagina=' + ${datosPaginacion.nroPagina-1}}" tabindex="-1">Previous</a>
+                    </li>
+                        <th:block th:each="i: ${#numbers.sequence(0, datosPaginacion.totalPaginas -1)}">
+                        <li class="page-item" th:classappend="${i == datosPaginacion.nroPagina ? 'active' : ''}">
+                            <a class="page-link"
+                               th:text="${i+1}" th:href="@{'/egresados/comentarios?nroPagina=' + ${i}}"></a>
+                        </li>
+                        </th:block>
+                        <li class="page-item" th:classappend="${datosPaginacion.ultima ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{'/egresados/comentarios?nroPagina=' + ${datosPaginacion.nroPagina+1}}">Next</a>
+                    </li>
+                    </div> 
+                    
+                        
+                    
+                    
+                </ul>
+            </nav>
+        </div>
     </body>
 </html>
