@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,19 +18,33 @@ import lombok.Setter;
 @Table(name = "datos_escolares")
 @Getter
 @Setter
+
 public class DatosEscolares {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int anioIngreso;
-    private int anioEgreso;
-    private double promedioFinal;
+    @NotNull(message = "Este campo no debe estar vacío")
+    private Integer anioIngreso;
+    @NotNull(message = "Este campo no debe estar vacío")
+    private Integer anioEgreso;
+    @NotNull(message = "Este campo no debe estar vacío")
+    private Double promedioFinal;
+    private int titulo;
+    private int postGrado;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_carrera", referencedColumnName = "id")
+    @Valid
     private Carrera carrera;
-    @OneToOne(mappedBy = "datosEscolares", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "datosEscolares", fetch = FetchType.EAGER)
     private Estudiante estudiante;
     public DatosEscolares(){
         
     }
+
+    @Override
+    public String toString() {
+        return "DatosEscolares{" + "id=" + id + ", anioIngreso=" + anioIngreso + ", anioEgreso=" + anioEgreso + ", promedioFinal=" + promedioFinal +'}';
+    }
+    
+    
 }

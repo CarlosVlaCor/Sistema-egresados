@@ -4,12 +4,12 @@
         <title></title>
     </head>
     <body>
-        <div th:fragment="comentario" class="card text-center  text-primary my-4 border-light">
-            <div class="card-body p-5 bg-light">
+        <div th:fragment="comentario" class="card text-center  text-light my-4 borde">
+            <div class="card-body p-5 fondo">
                 <h2 class="display-4">
                     <i class="fa-solid fa-comment"></i>
                 </h2>
-                <a th:href="@{/egresados/comentarios}">
+                <a class="text-light" th:href="@{/egresados/comentarios}">
                     <h4 class="mt-5" sec:authorize="hasRole('ROLE_ADMIN')">Comentarios</h4>
                     <h4 class="mt-5" sec:authorize="hasRole('ROLE_EGRESADO')">Dejar comentario</h4>
                 </a> 

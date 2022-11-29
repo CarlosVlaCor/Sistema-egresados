@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +20,7 @@ public class Carrera {
     private Long id;
     private String nombreCarrera;
     private String especialidad;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "carrera")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "carrera")
     private List<DatosEscolares> datosEscolareses;
     public Carrera(){
         

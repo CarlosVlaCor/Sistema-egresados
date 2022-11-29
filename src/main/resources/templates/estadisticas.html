@@ -4,7 +4,39 @@
         
     </head>
     <body>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script th:replace="graficaciones/infoEspecialidades :: infoEspecialidades"></script>
+        
         <header th:replace="layouts/plantilla :: header"></header>
         <h2>Estadisticas</h2>
+        <div class="container ">
+            <div class="row justify-content-center">
+                
+                <div class="column p-4 m-2"style="background-color: #5796c9" >
+                    <div id="chart_div"></div> 
+                </div>
+                <div class="column p-4 m-2"style="background-color:#5796c9">
+                    <div id="periodoEgreso"></div> 
+                </div>
+                <div class="column p-4 m-2" style="background-color: #5796c9;">
+                    <div id="egresadosTitulos"></div> 
+                </div>
+                <div class="column p-4 m-2" style="background-color: #5796c9;">
+                    <div id="egresadosTrabajo"></div> 
+                </div>
+                 <div class="column p-4 m-2" style="background-color: #5796c9;">
+                    <div id="egresadosTrabajoReferenteACarrera"></div> 
+                </div>
+                <div class="column p-4 m-2" style="background-color: #5796c9;">
+                    <div id="egresadosPostgrados"></div> 
+                </div>
+                <div class="column p-4 m-2" style="background-color: #5796c9;">
+                    <div id="tiemposParaEncontrarUnEmpleo"></div> 
+                </div>
+                
+                
+            </div>
+        </div>
+        
     </body>
 </html>

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
             <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
             <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+            <link rel="stylesheet" href="/css/estilos.css"/>
             <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
             <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
             <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js  }"></script>
@@ -13,37 +14,37 @@
                         </head>
                         <body>
                             <header th:fragment="header">
+
+                                <nav class="navbar navbar-expand-sm navbar-dark p-0 justify-content-between " style='background-color: #3256a8;'>
+                                    <a th:href="@{/}" class="navbar-brand p-2" >
+
+                                        <h1 style="font-family: 'Oswald', sans-serif;">Control de egresados</h1>
+                                    </a>
+                                    <div sec:authorize="isAuthenticated()">
+                                        <li class="nav-item  dropdown mr-5 mb-2">
+                                            <a class="nav-link dropdown-toggle light text-light"href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span sec:authentication="name"></span>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <form method="POST" th:action="@{logout}">
+                                                    <a href="#" onclick="this.parentNode.submit()" class="nav-link">
+                                                        <i class="fas fa-user-times"></i> Cerrar sesion
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </div>
+
+
+
+
+
+
+                                </nav>
                                 <div style="background-image: url('/62535.png');height: 50vh;  background-position: center;
                                      background-repeat: no-repeat;
-                                     background-size: cover;">
-                                    <nav class="navbar navbar-expand-sm navbar-dark p-0 justify-content-between " style='background-color: #3256a8;opacity: .8'>
-                                        <a th:href="@{/}" class="navbar-brand p-2" >
-
-                                            <h1 style="font-family: 'Oswald', sans-serif;">Control de egresados</h1>
-                                        </a>
-                                        <div sec:authorize="isAuthenticated()">
-                                            <li class="nav-item  dropdown mr-5 mb-2">
-                                                <a class="nav-link dropdown-toggle light text-light"href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span sec:authentication="name"></span>
-                                                </a>
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <form method="POST" th:action="@{logout}">
-                                                        <a href="#" onclick="this.parentNode.submit()" class="nav-link">
-                                                            <i class="fas fa-user-times"></i> Cerrar sesion
-                                                        </a>
-                                                    </form>
-                                                </div>
-                                            </li>
-                                        </div>
-
-
-
-
-
-
-                                    </nav>
-
-                                </div >
+                                     background-size: cover; ">
+                                </div>
 
 
                             </header>

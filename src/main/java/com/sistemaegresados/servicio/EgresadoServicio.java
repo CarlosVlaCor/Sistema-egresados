@@ -1,5 +1,6 @@
 package com.sistemaegresados.servicio;
 
+import com.sistemaegresados.dto.RespuestaGraficacion;
 import com.sistemaegresados.entidades.Estudiante;
 
 public interface EgresadoServicio {
@@ -11,4 +12,6 @@ public interface EgresadoServicio {
     public Estudiante modificarEstudiante(Estudiante estudiante, String nroControl);
     
     public void eliminarEgresado(String nroControl);
+    
+    public RespuestaGraficacion datosGraficacion();
 }

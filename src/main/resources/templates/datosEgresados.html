@@ -20,14 +20,14 @@
                 </div>
             </form>
         </div>
-        
+
         <div th:if="${Egresado != null}">
             <form class="mb-5" method="POST"th:object="${Egresado}" th:action="@{'/egresados/modificarEgresado/' + ${Egresado.usuario.nroControl}}">
                 <div id="accordion">
 
                     <div class="card">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#datosPersonales">
-                            <div class="card-header">
+                        <a class="collapsed card-link fondo " data-toggle="collapse" href="#datosPersonales">
+                            <div class="card-header text-light">
                                 Datos personales
                             </div>
 
@@ -92,128 +92,229 @@
 
 
                     <div class="card">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#datosEscolares">
-                            <div class="card-header">
+                        <a class="collapsed card-link fondo" data-toggle="collapse" href="#datosEscolares">
+                            <div class="card-header text-light">
                                 Datos escolares
                             </div>
 
                         </a>
-                        <div id="datosEscolares" class="collapse " data-parent="#accordion">
-                            <div class="card-body" >
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-3">
-                                        <label for="inputEmail4" class="form-label">Número de control</label>
-                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{usuario.nroControl}">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="inputEmail4" class="form-label">Nombre de la carrera</label>
-                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{datosEscolares.carrera.nombreCarrera}">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="inputEmail4" class="form-label">Especialidad</label>
-                                        <input type="text" class="form-control" id="inputEmail4" th:field="*{datosEscolares.carrera.especialidad}">
-                                    </div>
-
-                                </div>
-                                <div class="row justify-content-center mt-3">
-                                    <div class="col-sm-2">
-                                        <label for="inputEmail4" class="form-label ">Año de Ingreso</label>
-                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioIngreso}">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="inputEmail4" class="form-label ">Año de egreso</label>
-                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioEgreso}">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="inputEmail4" class="form-label ">Promedio final</label>
-                                        <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.promedioFinal}">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-
-                            <a class="collapsed card-link" data-toggle="collapse" href="#datosLaborales">
-                                <div class="card-header">
-                                    Datos laborales
-                                </div>
-
-                            </a>
-
-                            <div id="datosLaborales" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <div class="row justify-content-center">
-                                        <div class="col-sm-3">
-                                            <label for="inputEmail4" class="form-label">Nombre de la empresa</label>
-                                            <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.nombreEmpresa}">
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label for="inputEmail4" class="form-label">Puesto</label>
-                                            <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.puesto}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label for="inputEmail4" class="form-label">Año de inicio</label>
-                                            <input type="number" th:value="0" th:field='*{datosLaborales.anioInicio}' class="form-control" id="inputEmail4" min='0'>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> 
-                    <div class="row justify-content-center">
-                        <button type="button" class="btn btn-danger mt-3 mx-3" data-toggle="modal" data-target="#eliminar">Eliminar</button>
-                        <button type="button" class="btn btn-primary mt-3 mx-3" data-toggle="modal" data-target="#exampleModalCenter">Guardar cambios</button>
                     </div>
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-
-                                <div class="modal-body">
-                                    <div class="modal-header justify-content-center">
-                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere guardar los cambios?</h5>
-                                    </div>
-                                    <br/>
-                                    <br/>
-                                    <div class="row justify-content-center">
-                                        <div class="col-auto">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <button type="input" class="btn btn-primary ">Guardar cambios</button>
-                                        </div>
-                                    </div>
+                    <div id="datosEscolares" class="collapse " data-parent="#accordion">
+                        <div class="card-body" >
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Número de control</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{usuario.nroControl}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Nombre de la carrera</label>
+                                        <select  class="form-control" id="nombreCarrera">
+                                            <option th:value="1">Ingeniería informática</option>
+                                        </select>
+                                        <div class="alert alert-warning" th:if="${#fields.hasErrors('datosEscolares.carrera.nombreCarrera')}" th:errors="*{datosEscolares.carrera.nombreCarrera}"></div> 
+                                </div>
+                                <div class="col-sm-3">
+                                     <label for="inputEmail4" class="form-label">Especialidad</label>
+                                        <select class="form-control" id="especialidad" th:field="*{datosEscolares.carrera.id}">
+                                            <option value="1" th:text="Móviles">
+                                            <option value="2" th:text="Redes">
+                                        </select>
+                                        <div class="alert alert-warning" th:if="${#fields.hasErrors('datosEscolares.carrera.especialidad')}" th:errors="*{datosEscolares.carrera.especialidad}"></div> 
                                 </div>
 
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label ">Año de Ingreso</label>
+                                    <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioIngreso}">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label ">Año de egreso</label>
+                                    <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.anioEgreso}">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label ">Promedio final</label>
+                                    <input type="text" class="form-control col-md-5" id="inputEmail4" th:field="*{datosEscolares.promedioFinal}">
+                                </div>
+                                
+
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                <br/>
+                                <div>¿Cuenta con su título universitario?</div>
+                                <br/>
+                                <div>
+
+                                <input type="radio" th:field="*{datosEscolares.titulo}" th:value="1">
+                                 <label>Sí</label> 
+                                            <input type="radio" th:field="*{datosEscolares.titulo}" th:value="2">
+                                                <label>No</label> 
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                <br/>
+                                <div>¿Cuenta con un postgrado?</div>
+                                <br/>
+                                <div>
+
+                                <input type="radio" th:field="*{datosEscolares.postGrado}" th:value="1">
+                                 <label>Sí</label> 
+                                            <input type="radio" th:field="*{datosEscolares.postGrado}" th:value="2">
+                                                <label>No</label> 
+                                </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                     <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="eliminar" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
 
-                                <div class="modal-body">
-                                    <div class="modal-header justify-content-center">
-                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere eliminar el egresado?</h5>
-                                    </div>
-                                    <br/>
-                                    <br/>
-                                    <div class="row justify-content-center">
-                                        <div class="col-auto">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="btn btn-danger" th:href="@{'/egresados/eliminarEgresado/' + ${Egresado.usuario.nroControl}}" role="button">Link</a>
-                                        </div>
-                                    </div>
+                    <div class="card">
+
+                        <a class="collapsed card-link fondo" data-toggle="collapse" href="#datosLaborales">
+                            <div class="card-header text-light">
+                                Datos laborales
+                            </div>
+
+                        </a>
+                    </div>
+                    <div id="datosLaborales" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Nombre de la empresa</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.nombreEmpresa}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="inputEmail4" class="form-label">Puesto</label>
+                                    <input type="text" class="form-control" id="inputEmail4" th:field="*{datosLaborales.puesto}">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="inputEmail4" class="form-label">Año de inicio</label>
+                                    <input type="number" th:value="0" th:field='*{datosLaborales.anioInicio}' class="form-control" id="inputEmail4" min='0'>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                <br/>
+                                <div>¿Cuenta con trabajo actualmente?</div>
+                                <br/>
+                                <div>
+
+                                <input type="radio" th:field="*{datosLaborales.trabajo}" th:value="1">
+                                 <label>Trabaja</label> 
+                                            <input type="radio" th:field="*{datosLaborales.trabajo}" th:value="2">
+                                                <label>No trabaja</label> 
+                                </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                <br/>
+                                <div>¿El trabajo es referente a la carrera?</div>
+                                <br/>
+                                <div>
+
+                                <input type="radio" th:field="*{datosLaborales.trabajoReferenteACarrera}" th:value="1">
+                                <label>Si</label> 
+                                <input type="radio" th:field="*{datosLaborales.trabajoReferenteACarrera}" th:value="2">
+                                <label>No</label> 
+                                </div>
+
                                 </div>
 
                             </div>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                <br/>
+                                <div>El tiempo que tardó en encontrar el empleo</div>
+                                <br/>
+
+                                <div>
+                                <input type="radio" th:field="*{datosLaborales.tiempoParaEncontrarUnEmpleo}" th:value="1">
+                                <label>1 año o menos</label> 
+                                </div>
+                                <div>
+                                    <input type="radio" th:field="*{datosLaborales.tiempoParaEncontrarUnEmpleo}" th:value="2">
+                                    <label>Entre 2 y 3 años</label> 
+                                </div>
+                                <div>
+                                    <input type="radio" th:field="*{datosLaborales.tiempoParaEncontrarUnEmpleo}" th:value="3">
+                                    <label>3 años o más</label> 
+                                </div>
+                                <div>
+                                    <input type="radio" th:field="*{datosLaborales.tiempoParaEncontrarUnEmpleo}" th:value="4">
+                                    <label>No ha conseguido empleo</label> 
+                                </div>
+                                <div>
+                                    <input type="radio" th:field="*{datosLaborales.tiempoParaEncontrarUnEmpleo}" th:value="5">
+                                    <label>No están interesados en un empleo relacionado</label> 
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
-            </form>
-        </div>
-    </body>
-</html>
+                </div>
+            </div>
+
+
+                                                                    <div class="row justify-content-center">
+                                                                        <button type="button" class="btn btn-danger mt-3 mx-3" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                                                                        <button type="button" class="btn btn-primary mt-3 mx-3" data-toggle="modal" data-target="#exampleModalCenter">Guardar cambios</button>
+                                                                    </div>
+                                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+
+                                                                                <div class="modal-body">
+                                                                                    <div class="modal-header justify-content-center">
+                                                                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere guardar los cambios?</h5>
+                                                                                    </div>
+                                                                                    <br/>
+                                                                                    <br/>
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-auto">
+                                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                                        </div>
+                                                                                        <div class="col-auto">
+                                                                                            <button type="input" class="btn btn-primary ">Guardar cambios</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="eliminar" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+
+                                                                                <div class="modal-body">
+                                                                                    <div class="modal-header justify-content-center">
+                                                                                        <h5 class="modal-title " id="exampleModalLongTitle">¿Seguro que quiere eliminar el egresado?</h5>
+                                                                                    </div>
+                                                                                    <br/>
+                                                                                    <br/>
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-auto">
+                                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                                        </div>
+                                                                                        <div class="col-auto">
+                                                                                            <a class="btn btn-danger" th:href="@{'/egresados/eliminarEgresado/' + ${Egresado.usuario.nroControl}}" role="button">Link</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </form>
+                                                                    </div>
+                                                                    </body>
+                                                                    </html>

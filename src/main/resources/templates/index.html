@@ -3,31 +3,31 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8"></meta>
     </head>
-    <body>
+    <body >
         <header th:replace="layouts/plantilla :: header"></header>
      
         <div class="container mt-4" sec:authorize="hasRole('ROLE_ADMIN')">
             
-            <a class="btn btn-primary" href="egresados/agregarEgresado" role="button">
+            <a class="btn fondo text-light" href="egresados/agregarEgresado" role="button">
             <i class="fa-solid fa-plus"></i>
                 Agregar un nuevo egresado
             </a>
         </div>
         
-         <div class="container my-5">
+         <div class="container mt-3 mb-5 ">
             <div class="row align-items-center">
-               <div class="column col text-center bg-light mx-3 border border-primary rounded">
+               <div class="column col text-center fondo mx-3 border border-light rounded">
                    
-                   <div class="card text-center text-primary my-4 border-light" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <div class="card-body p-5 bg-light" >
+                   <div class="card text-center text-primary my-4 borde" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <div class="card-body p-5 fondo " >
                             <h2 class="display-4">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="text-light fa-solid fa-user"></i>
                             </h2>
-                            <h4 class="mt-5"><a th:href="@{/egresados/datosEgresados}">Datos egresados</a> </h4>
+                            <h4 class="mt-5"><a class="text-light"th:href="@{/egresados/datosEgresados}">Datos egresados</a> </h4>
                         </div>
                     </div>
                     <div class="card text-center text-primary my-4 border-light" sec:authorize="hasRole('ROLE_EGRESADO')">
-                        <div class="card-body p-5 bg-light" >
+                        <div class="card-body p-5 fondo" >
                             <h2 class="display-4">
                                 <i class="fa-solid fa-user"></i>
                             </h2>
@@ -36,19 +36,19 @@
                         
                     </div>
                 </div>
-                <div class="column col text-center bg-light mx-3 border border-primary rounded" >
+                <div class="column col text-center fondo mx-3 border borde rounded" >
                    
-                    <div class="card text-center text-primary my-4 border-light" sec:authorize="hasRole('ROLE_EGRESADO')">
-                        <div class="card-body p-5 bg-light">
+                    <div class="card text-center text-primary my-4 borde" sec:authorize="hasRole('ROLE_EGRESADO')">
+                        <div class="card-body p-5 fondo">
                             <h2 class="display-4">
                                 <i class="fa-solid fa-book"></i>
                             </h2>
-                            <h4 class="mt-5"><a th:href="@{/egresados/datosEscolares}">Datos escolares</a> </h4>
+                            <h4 class="mt-5"><a class="text-light"th:href="@{/egresados/datosEscolares}">Datos escolares</a> </h4>
                         </div>
                     </div>
                     <div th:replace="layouts/AEstadisticas" sec:authorize="hasRole('ROLE_ADMIN')"></div>
                 </div>
-                <div class="column col text-center bg-light mx-3 border border-primary rounded">
+                <div class="column col text-center fondo mx-3 border borde rounded">
                    
                     <div class="card text-center  text-primary my-4 border-light" sec:authorize="hasRole('ROLE_EGRESADO')">
                         <div class="card-body p-5 bg-light">
@@ -63,7 +63,7 @@
                 </div>
             </div>
              <div class="row justify-content-md-center mt-5" sec:authorize="hasRole('ROLE_EGRESADO')">
-                 <div class="column col-4 text-center bg-light mx-3 border border-primary rounded" >
+                 <div class="column col-4 text-center fondo mx-3 border borde rounded" >
                    
                     <div th:replace="layouts/AEstadisticas"></div>
                 </div>

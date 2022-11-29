@@ -20,7 +20,9 @@ public class DatosLaborales {
     private String nombreEmpresa;
     private Integer anioInicio;
     private String puesto;
-    
+    private int trabajo;
+    private int trabajoReferenteACarrera;
+    private int tiempoParaEncontrarUnEmpleo;
     public DatosLaborales(){
         
     }

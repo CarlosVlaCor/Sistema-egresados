@@ -2,7 +2,7 @@
     <head th:replace="layouts/plantilla :: head">
 
     </head>
-    <body>
+    <body class="bg-light">
         <header th:replace="layouts/plantilla :: header"></header>
         <div th:if="${#request.getParameter('error') != null}" class="container">
             <div class="row">
@@ -15,10 +15,10 @@
         <section id="login" class="my-5">
             <div class="container">
                 <div class="row m-auto justify-content-between">
-                    <div class="col-md-5  bg-light border border-primary rounded">
+                    <div class="col-md-5  fondo border borde rounded">
                         <a data-toggle="modal" data-target="#loginAdmin" href="#loginAdmin">
-                            <div class="card text-center text-primary my-4 border-light">
-                                <div class="card-body p-5 bg-light" >
+                            <div class="card text-center text-light my-4 borde">
+                                <div class="card-body p-5 fondo" >
                                     <h2 class="display-4">
                                         <i class="fa-solid fa-user-tie"></i>
                                     </h2>
@@ -31,10 +31,10 @@
 
 
 
-                    <div class="col-md-5  bg-light border border-primary rounded">
+                    <div class="col-md-5 fondo border border-light rounded">
                         <a data-toggle="modal" data-target="#loginUser" href="#loginUser">
-                            <div class="card text-center text-primary my-4 border-light">
-                                <div class="card-body p-5 bg-light border-light" >
+                            <div class="card text-center text-light my-4 borde">
+                                <div class="card-body p-5 fondo borde" >
                                     <h2 class="display-4">
                                         <i class="fa-solid fa-user-graduate"></i>
                                     </h2>
@@ -51,9 +51,9 @@
         <div class="modal fade" id="loginAdmin" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-light">
+                    <div class="modal-header fondo text-light">
                         <h5 class="modal-title" id="exampleModalLabel">Login administrador</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -67,7 +67,7 @@
                                 <label for="password" class="form-label" >Password:</label>
                                 <input type="password" name="password" id="password" class="form-control"/>
                             </div>
-                            <input type="submit"  value="Login" class="btn btn-primary btn-block"/>
+                            <input type="submit"  value="Login" class="btn fondo text-light btn-block"/>
                         </form>
                     </div>
                 </div>
@@ -76,9 +76,9 @@
         <div class="modal fade" id="loginUser" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-light">
+                    <div class="modal-header fondo text-light">
                         <h5 class="modal-title" id="exampleModalLabel">Login egresado</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -92,7 +92,7 @@
                                 <label for="password" class="form-label" >Password:</label>
                                 <input type="password" name="password" id="password2" class="form-control"/>
                             </div>
-                            <input type="submit"  value="Login" class="btn btn-primary btn-block"/>
+                            <input type="submit"  value="Login" class="btn fondo text-light btn-block"/>
                         </form>
                     </div>
                 </div>
